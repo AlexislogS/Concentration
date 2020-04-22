@@ -11,9 +11,11 @@ import UIKit
 final class GameViewController: UIViewController {
     
     private lazy var game = Concentration(numberOfPairsOfCards: numberOfPairOFCards)
-    var numberOfPairOFCards: Int {
-        return (cardButtons.count + 1) / 2
-    }
+    private var emojiChoices: String!
+    private var backgroundColor = UIColor.lightGray
+    private var cardDeckColor = UIColor.systemBlue
+    private var emoji = [Card:String]()
+    private var emojiThemes = Theme.themes
     private var indexTheme = 0 {
         didSet {
             emoji = [Card:String]()
@@ -25,11 +27,9 @@ final class GameViewController: UIViewController {
             updateAppearance()
         }
     }
-    private var emojiChoices: String!
-    private var backgroundColor = UIColor.lightGray
-    private var cardDeckColor = UIColor.systemBlue
-    private var emoji = [Card:String]()
-    private var emojiThemes = Theme.themes
+    var numberOfPairOFCards: Int {
+        return (cardButtons.count + 1) / 2
+    }
     
     @IBOutlet private weak var startNewButton: UIButton!
     @IBOutlet private weak var scoreLabel: UILabel!
@@ -40,15 +40,6 @@ final class GameViewController: UIViewController {
         didSet {
             updateStartButton()
         }
-    }
-    
-    private func updateStartButton() {
-        let attributes: [NSAttributedString.Key : Any] = [
-            .strokeWidth : 5.0,
-            .strokeColor : UIColor.black
-        ]
-        let attributedString = NSAttributedString(string: "START", attributes: attributes)
-        startButton.setAttributedTitle(attributedString, for: .normal)
     }
     
     @IBAction private func touchCard(_ sender: UIButton) {
@@ -95,6 +86,15 @@ final class GameViewController: UIViewController {
         }
         scoreLabel.text = "Score: \(game.score)"
         flipCountLabel.text = "Flips: \(game.flipCount)"
+    }
+    
+    private func updateStartButton() {
+        let attributes: [NSAttributedString.Key : Any] = [
+            .strokeWidth : 5.0,
+            .strokeColor : UIColor.black
+        ]
+        let attributedString = NSAttributedString(string: "START", attributes: attributes)
+        startButton.setAttributedTitle(attributedString, for: .normal)
     }
     
     private func emoji(for card: Card) -> String {
