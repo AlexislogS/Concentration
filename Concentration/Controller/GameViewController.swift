@@ -10,6 +10,7 @@ import UIKit
 
 final class GameViewController: UIViewController {
     
+    var initialIndex: Int!
     private lazy var game = Concentration(numberOfPairsOfCards: numberOfPairOFCards)
     private var emojiChoices: String!
     private var backgroundColor = UIColor.lightGray
@@ -59,7 +60,7 @@ final class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        indexTheme = Int.random(in: 0..<emojiThemes.count)
+        indexTheme = initialIndex
         updateViewFromModel()
     }
     

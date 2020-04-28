@@ -16,6 +16,7 @@
 		EAAE2FDA244F1E55003B3050 /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAE2FD9244F1E55003B3050 /* Concentration.swift */; };
 		EAAE2FDC244F1F1D003B3050 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAE2FDB244F1F1D003B3050 /* Card.swift */; };
 		EAAE2FE324504352003B3050 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAE2FE224504352003B3050 /* Theme.swift */; };
+		EAF615BD24585C0C00CADE13 /* ThemeChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF615BC24585C0C00CADE13 /* ThemeChooserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		EAAE2FD9244F1E55003B3050 /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
 		EAAE2FDB244F1F1D003B3050 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		EAAE2FE224504352003B3050 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		EAF615BC24585C0C00CADE13 /* ThemeChooserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeChooserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				EAA57DCF244E2404008C815F /* Concentration */,
+				EAAE2FE624506496003B3050 /* Storyboard */,
 				EAAE2FD8244F1DF1003B3050 /* Supporting Files */,
 				EAA57DCE244E2404008C815F /* Products */,
 			);
@@ -66,7 +69,6 @@
 				EAAE2FDD244F1F23003B3050 /* Models */,
 				EAAE2FE424504B0D003B3050 /* View */,
 				EAAE2FE524504B2D003B3050 /* Controller */,
-				EAAE2FE624506496003B3050 /* Storyboard */,
 			);
 			path = Concentration;
 			sourceTree = "<group>";
@@ -102,6 +104,7 @@
 		EAAE2FE524504B2D003B3050 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EAF615BC24585C0C00CADE13 /* ThemeChooserViewController.swift */,
 				EAA57DD4244E2405008C815F /* GameViewController.swift */,
 			);
 			path = Controller;
@@ -193,6 +196,7 @@
 				EAA57DD1244E2404008C815F /* AppDelegate.swift in Sources */,
 				EAA57DD3244E2405008C815F /* SceneDelegate.swift in Sources */,
 				EAAE2FE324504352003B3050 /* Theme.swift in Sources */,
+				EAF615BD24585C0C00CADE13 /* ThemeChooserViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
