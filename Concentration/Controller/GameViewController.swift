@@ -10,14 +10,14 @@ import UIKit
 
 final class GameViewController: UIViewController {
     
-    var initialIndex: Int!
     private lazy var game = Concentration(numberOfPairsOfCards: numberOfPairOFCards)
     private var emojiChoices: String!
     private var backgroundColor = UIColor.lightGray
     private var cardDeckColor = UIColor.systemBlue
     private var emoji = [Card:String]()
     private var emojiThemes = Theme.themes
-    private var indexTheme = 0 {
+    var initialIndexTheme: Int?
+    var indexTheme = 0 {
         didSet {
             emoji = [Card:String]()
             titleLabel.text = emojiThemes[indexTheme].name
@@ -26,13 +26,14 @@ final class GameViewController: UIViewController {
             cardDeckColor = emojiThemes[indexTheme].deckColor
             
             updateAppearance()
+            updateViewFromModel()
         }
     }
     var numberOfPairOFCards: Int {
         return (cardButtons.count + 1) / 2
     }
     
-    @IBOutlet private weak var startNewButton: UIButton!
+    @IBOutlet private weak var randomThemeButton: UIButton!
     @IBOutlet private weak var scoreLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private var cardButtons: [UIButton]!
@@ -52,16 +53,18 @@ final class GameViewController: UIViewController {
         }
     }
     
-    @IBAction func startNewGame() {
-        indexTheme = Int.random(in: 0..<emojiThemes.count)
+    @IBAction private func startNewGame() {
         game.resetGame()
         updateViewFromModel()
     }
     
+    @IBAction private func randomGame() {
+        indexTheme = Int.random(in: 0..<emojiThemes.count)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        indexTheme = initialIndex
-        updateViewFromModel()
+        indexTheme = initialIndexTheme ?? Int.random(in: 0..<emojiThemes.count)
     }
     
     private func updateAppearance() {
@@ -69,8 +72,9 @@ final class GameViewController: UIViewController {
         flipCountLabel.textColor = cardDeckColor
         scoreLabel.textColor = cardDeckColor
         titleLabel.textColor = cardDeckColor
-        startNewButton.setTitleColor(backgroundColor, for: .normal)
-        startNewButton.backgroundColor = cardDeckColor
+        startButton.setTitleColor(backgroundColor, for: .normal)
+        startButton.backgroundColor = cardDeckColor
+        randomThemeButton.tintColor = cardDeckColor
     }
     
     private func updateViewFromModel() {
