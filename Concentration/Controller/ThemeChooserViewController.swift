@@ -29,11 +29,10 @@ class ThemeChooserViewController: UIViewController {
     }
     
     @IBAction func showThemevc(_ sender: UIButton) {
+        let themeIndex = sender.tag
         if let splitDetailvc = splitDetailViewlController {
-            let themeIndex = sender.tag
             splitDetailvc.indexTheme = themeIndex
         } else if let gamevc = lastSeguedToGamevc {
-            let themeIndex = sender.tag
             gamevc.indexTheme = themeIndex
             navigationController?.pushViewController(gamevc, animated: true)
         } else {
