@@ -67,8 +67,8 @@
 			isa = PBXGroup;
 			children = (
 				EAAE2FDD244F1F23003B3050 /* Models */,
-				EAAE2FE424504B0D003B3050 /* View */,
 				EAAE2FE524504B2D003B3050 /* Controller */,
+				EAAE2FE424504B0D003B3050 /* Storage */,
 			);
 			path = Concentration;
 			sourceTree = "<group>";
@@ -93,12 +93,12 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		EAAE2FE424504B0D003B3050 /* View */ = {
+		EAAE2FE424504B0D003B3050 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
 				EAAE2FE224504352003B3050 /* Theme.swift */,
 			);
-			path = View;
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		EAAE2FE524504B2D003B3050 /* Controller */ = {

@@ -16,6 +16,7 @@ class ThemeChooserViewController: UIViewController {
     }
     
     override func awakeFromNib() {
+        super.awakeFromNib()
         splitViewController?.delegate = self
     }
     
@@ -48,6 +49,12 @@ extension ThemeChooserViewController: UISplitViewControllerDelegate {
         collapseSecondary secondaryViewController: UIViewController,
         onto primaryViewController: UIViewController
     ) -> Bool {
-        return true
+        
+        if let gamevc = secondaryViewController as? GameViewController {
+            if gamevc.initialIndexTheme == nil {
+                return true
+            }
+        }
+        return false
     }
 }
