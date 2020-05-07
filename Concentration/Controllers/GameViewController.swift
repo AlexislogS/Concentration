@@ -16,6 +16,9 @@ final class GameViewController: UIViewController {
     private var cardDeckColor = UIColor.systemBlue
     private var emoji = [Card:String]()
     private var emojiThemes = Theme.themes
+    private var visibleCardButtons: [UIButton]! {
+        return cardButtons?.filter { !$0.superview!.isHidden }
+    }
     var initialIndexTheme: Int?
     var indexTheme = 0 {
         didSet {
@@ -30,13 +33,13 @@ final class GameViewController: UIViewController {
         }
     }
     var numberOfPairOFCards: Int {
-        return (cardButtons.count + 1) / 2
+        return (visibleCardButtons.count + 1) / 2
     }
     
+    @IBOutlet private var cardButtons: [UIButton]!
     @IBOutlet private weak var randomThemeButton: UIButton!
     @IBOutlet private weak var scoreLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private var cardButtons: [UIButton]!
     @IBOutlet private weak var flipCountLabel: UILabel!
     @IBOutlet private weak var startButton: UIButton! {
         didSet {
@@ -44,8 +47,18 @@ final class GameViewController: UIViewController {
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        indexTheme = initialIndexTheme ?? Int.random(in: 0..<emojiThemes.count)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        updateViewFromModel()
+    }
+    
     @IBAction private func touchCard(_ sender: UIButton) {
-        if let cardNumber = cardButtons.firstIndex(of: sender) {
+        if let cardNumber = visibleCardButtons.firstIndex(of: sender) {
             game.chooseCard(at: cardNumber)
             updateViewFromModel()
         } else {
@@ -62,11 +75,6 @@ final class GameViewController: UIViewController {
         indexTheme = Int.random(in: 0..<emojiThemes.count)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        indexTheme = initialIndexTheme ?? Int.random(in: 0..<emojiThemes.count)
-    }
-    
     private func updateAppearance() {
         view.backgroundColor = backgroundColor
         flipCountLabel.textColor = cardDeckColor
@@ -78,8 +86,8 @@ final class GameViewController: UIViewController {
     }
     
     private func updateViewFromModel() {
-        for index in cardButtons.indices {
-            let button = cardButtons[index]
+        for index in visibleCardButtons.indices {
+            let button = visibleCardButtons[index]
             let card = game.cards[index]
             if card.isFacedUp {
                 button.setTitle(emoji(for: card), for: .normal)

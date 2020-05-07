@@ -49,8 +49,6 @@
 			isa = PBXGroup;
 			children = (
 				EAA57DCF244E2404008C815F /* Concentration */,
-				EAAE2FE624506496003B3050 /* Storyboard */,
-				EAAE2FD8244F1DF1003B3050 /* Supporting Files */,
 				EAA57DCE244E2404008C815F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,8 +65,10 @@
 			isa = PBXGroup;
 			children = (
 				EAAE2FDD244F1F23003B3050 /* Models */,
-				EAAE2FE524504B2D003B3050 /* Controller */,
-				EAAE2FE424504B0D003B3050 /* Storage */,
+				EAAE2FE624506496003B3050 /* Views */,
+				EAAE2FE524504B2D003B3050 /* Controllers */,
+				EAAE2FE424504B0D003B3050 /* Themes */,
+				EAAE2FD8244F1DF1003B3050 /* Supporting Files */,
 			);
 			path = Concentration;
 			sourceTree = "<group>";
@@ -93,30 +93,30 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		EAAE2FE424504B0D003B3050 /* Storage */ = {
+		EAAE2FE424504B0D003B3050 /* Themes */ = {
 			isa = PBXGroup;
 			children = (
 				EAAE2FE224504352003B3050 /* Theme.swift */,
 			);
-			path = Storage;
+			path = Themes;
 			sourceTree = "<group>";
 		};
-		EAAE2FE524504B2D003B3050 /* Controller */ = {
+		EAAE2FE524504B2D003B3050 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				EAF615BC24585C0C00CADE13 /* ThemeChooserViewController.swift */,
 				EAA57DD4244E2405008C815F /* GameViewController.swift */,
 			);
-			path = Controller;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		EAAE2FE624506496003B3050 /* Storyboard */ = {
+		EAAE2FE624506496003B3050 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				EAA57DD6244E2405008C815F /* Main.storyboard */,
 				EAA57DDB244E2407008C815F /* LaunchScreen.storyboard */,
 			);
-			path = Storyboard;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,7 +342,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UG5F626PKK;
-				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Concentration/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -360,7 +360,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UG5F626PKK;
-				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Concentration/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

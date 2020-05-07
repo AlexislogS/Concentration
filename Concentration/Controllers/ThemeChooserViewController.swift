@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ThemeChooserViewController: UIViewController {
+final class ThemeChooserViewController: UIViewController {
     
     private var lastSeguedToGamevc: GameViewController?
     private var splitDetailViewlController: GameViewController? {
